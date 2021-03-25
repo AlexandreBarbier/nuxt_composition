@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      HOST: 0.0.0.0
+    volumes:
+      - /app/node_modules
+      - app_perso_sync:/app/:nocopy
+
+volumes:
+  app_perso_sync:
+    external: true

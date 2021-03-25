@@ -1,0 +1,42 @@
+{
+  "default": {
+    "title": "",
+    "entries": {
+      "account": {
+        "title": "Account",
+        "action": "showAccount"
+      },
+      "settings": {
+        "title": "Settings",
+        "action": "showSettings"
+      }
+    }
+  },
+  "account": {
+    "title": "Account",
+    "entries": {
+      "edit": {
+        "title": "Edit",
+        "action": "edit"
+      },
+      "logout": {
+        "title": "Logout",
+        "action": "logout"
+      }
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "entries": {
+      "avatar": {
+        "title": "Set avatar",
+        "action": "setAvatar"
+      },
+      "username": {
+        "title": "Set username",
+        "action": "setUsername"
+      }
+    }
+  }
+
+}

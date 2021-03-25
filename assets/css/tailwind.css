@@ -1,0 +1,149 @@
+/* purgecss start ignore */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+/* purgecss end ignore */
+@import "tailwindcss/utilities";
+
+button {
+  @apply rounded-md px-8 py-2 uppercase font-semibold text-white text-base;
+
+  &:focus {
+    @apply outline-none;
+  }
+
+  &:active {
+    @apply text-black-400;
+  }
+
+  &.btn-primary {
+    @apply bg-blue-900;
+    &:active {
+      @apply bg-black-600;
+    }
+    &:disabled {
+      @apply bg-ab_gray;
+    }
+  }
+
+  &.btn-secondary {
+    @apply bg-ab_gray text-white;
+
+    &:active {
+      @apply bg-black-500;
+    }
+    &:disabled {
+      @apply bg-blue-900;
+    }
+  }
+
+  &.btn-orange {
+    @apply bg-black-300 text-ab_gray;
+
+    &:active {
+      @apply bg-black-600;
+    }
+  }
+}
+
+.Input {
+  @apply rounded-md px-4 py-2 bg-ab_gray;
+  input {
+    @apply bg-transparent;
+    &:focus {
+      @apply outline-none;
+    }
+    &::placeholder {
+      @apply text-blue-900;
+    }
+  }
+}
+
+.messageInput {
+  @apply bg-white;
+
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  resize: none;
+  @apply bg-transparent;
+
+  &:focus {
+    @apply outline-none;
+  }
+
+  &::placeholder {
+    @apply text-blue-900;
+  }
+}
+
+.sqweeze {
+  animation: bounce 0.2s;
+  animation-iteration-count: 4;
+}
+
+.conversation-list {
+  transition: width 0.5s ease-in-out;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-3%);
+    animationtimingfunction: cubic-bezier(0.8, 0, 1, 1);
+  }
+
+  50% {
+    transform: translateX(3%);
+    animationtimingfunction: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateY(-100px);
+  opacity: 0;
+}
+
+.open-modal-enter-active {
+  animation: fade-in 0.3s ease;
+}
+
+.open-modal-leave-active {
+  animation: fade-out 0.3s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}

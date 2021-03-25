@@ -1,0 +1,26 @@
+version: "2"
+syncs:
+  app_perso_sync:
+    notify_terminal: true
+    src: "."
+    sync_excludes:
+      [
+        ".git",
+        ".idea",
+        ".nuxt",
+        "node_modules",
+        ".DS_Store",
+        ".docker-sync",
+        ".vscode",
+        ".github",
+      ]
+    sync_host_port: 10872
+    sync_strategy: "native_osx"
+    watch_excludes:
+      [
+        ".*/.git",
+        ".*/node_modules",
+        ".*/sass-cache",
+        ".gitignore",
+        ".docker-sync/daemon.log",
+      ]
