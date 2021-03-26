@@ -8,8 +8,8 @@ services:
       HOST: 0.0.0.0
     volumes:
       - /app/node_modules
-      - app_perso_sync:/app/:nocopy
+      - nuxt_composition_sync:/app/:nocopy
 
 volumes:
-  app_perso_sync:
+  nuxt_composition_sync:
     external: true
