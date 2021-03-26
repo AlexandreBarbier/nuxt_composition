@@ -3,7 +3,7 @@ FROM node:lts-alpine
 WORKDIR /app
 
 COPY ./yarn.lock ./package.json /app/
-RUN yarn install
+RUN yarn install && yarn build
 COPY . /app
-RUN yarn build
+
 CMD yarn start
