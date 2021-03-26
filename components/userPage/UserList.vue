@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, useFetch, ref, computed } from '@nuxtjs/composition-api'
+import { defineComponent, useFetch, ref, computed, onMounted } from '@nuxtjs/composition-api'
 import userState from '@/composables/users'
 import { UserListFilters } from '@/types/enum/filters'
 
@@ -21,9 +21,11 @@ export default defineComponent({
   setup () {
     const { fetchUsers, getFilteredUsers } = userState()
     const selected = ref('')
-    useFetch(async () => {
+    onMounted(async () => {
+
       await fetchUsers()
     })
+
     return { users: computed(() => { return getFilteredUsers(UserListFilters.ExceptMe).value.map(x => x.value) }), selected }
   },
   methods: {

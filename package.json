@@ -1,10 +1,7 @@
 {
-  "name": "perso",
+  "name": "nuxt_composition",
   "version": "1.0.0",
   "private": true,
-  "engines": {
-    "node": ">=14.0.0"
-  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -34,22 +31,22 @@
     "vue": "^2.6.12",
     "vue-i18n": "^8.24.1",
     "vuex": "3",
-    "webpack": "4.46.0"
+    "core-js": "3",
+    "webpack": "4.46.0",
+    "postcss": "8.2.8",
+    "@nuxtjs/tailwindcss": "4.0.1",
+    "autoprefixer": "^10.2.5",
+    "@babel/runtime-corejs3": "^7.13.8",
+    "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
-    "@babel/runtime-corejs3": "^7.13.8",
+    "@tailwindcss/postcss7-compat": "^2.0.3",
     "@nuxt/types": "^2.15.3",
     "@nuxtjs/eslint-config-typescript": "^6.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
-    "@nuxtjs/tailwindcss": "4.0.1",
-    "@tailwindcss/postcss7-compat": "^2.0.3",
-    "autoprefixer": "^10.2.5",
-    "core-js": "3",
     "eslint": "^7.22.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.5.0",
-    "postcss": "8.2.8",
-    "tailwindcss": "^2.0.3",
     "vuex-module-decorators": "^1.0.1"
   }
 }
