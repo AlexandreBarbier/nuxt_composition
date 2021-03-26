@@ -62,7 +62,7 @@ export default {
             },
             ssr: false
           },
-          storage: true
+          storage: { ssr: false}
         }
       }
     ]
