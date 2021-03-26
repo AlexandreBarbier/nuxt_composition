@@ -1,5 +1,7 @@
 <template>
-  <div class="flex" />
+  <div class="flex" >
+    Landing
+  </div>
 </template>
 
 <script lang="ts">

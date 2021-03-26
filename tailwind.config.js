@@ -3,7 +3,6 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   theme: {
     colors: {
-
       black: {
         200: '#DFE2E4',
         300: '#C0C5C9',
