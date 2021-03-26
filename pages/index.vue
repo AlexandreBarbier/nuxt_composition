@@ -10,15 +10,7 @@ import userState from '@/composables/users'
 
 export default defineComponent({
   setup () {
-    const { fetchUsers, users } = userState()
 
-    useAsync(() => {
-      fetchUsers()
-    })
-
-    return {
-      users
-    }
   }
 })
 </script>
