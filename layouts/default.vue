@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute inset-0  text-black-900 grid grid-rows-1 grid-cols-12">
+  <div class="absolute inset-0 gap-x-8 text-black-900 grid grid-rows-1 grid-cols-12 h-full">
     <NavBar class="flex-none z-20 col-span-full row-end-1" />
     <client-only>
       <GlobalNotification class="fixed col-span-full mt-24 z-10" />
@@ -8,7 +8,7 @@
     <transition name="open-modal">
       <component :is="modalComponentName" v-if="showModal" v-bind="modalProps" class="absolute inset-0" />
     </transition>
-    <Footer class="col-span-full max-h-12" />
+    <Footer class="col-span-full max-h-12 row-start-2" />
   </div>
 </template>
 
