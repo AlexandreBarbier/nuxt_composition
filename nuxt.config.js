@@ -24,6 +24,7 @@ export default {
     '@/plugins/auth.ts',
     '@/plugins/clickOutside.ts',
     '@/plugins/i18n.ts',
+    { src: '@/plugins/vueShortkey.ts', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
