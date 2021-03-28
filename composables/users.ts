@@ -36,7 +36,7 @@ export default () => {
 
   const getUser = async (userId: string | undefined) => {
     if (!userId) {
-      return
+      return undefined
     }
     const user = usersMap.get(userId)
     if (!user || !user.value?.email) {
@@ -101,6 +101,8 @@ export default () => {
 
       case UserListFilters.Availables:
         return ssrRef(users.value.filter((u) => { return u.value.id !== localUser?.value?.id }))
+      default:
+        return users
     }
   }
 
