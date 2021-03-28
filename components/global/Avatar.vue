@@ -1,7 +1,6 @@
 <template>
-
-  <AvatarIcon v-if="!imageLoad || !url" :class="['bg-blue-700 p-0.5 rounded-full fill-current text-white', avatarSize]" />
-  <img v-else @load="imageLoad" :src="url" :class="['rounded-full bg-white', avatarSize]">
+  <AvatarIcon v-if="!imageLoad || !url" :class="['bg-blue-700 p-0.5 rounded-full fill-current flex-none text-white', avatarSize]" />
+  <img v-else :class="['rounded-full bg-white', avatarSize]" :src="url" @load="imageLoad">
 </template>
 
 <script lang="ts">
@@ -9,14 +8,14 @@ import { defineComponent, ref } from '@nuxtjs/composition-api'
 import AvatarIcon from '@/assets/icons/avatar_icon.svg'
 
 export default defineComponent({
-  components: {AvatarIcon},
+  components: { AvatarIcon },
   props: {
     url: { type: String, default: undefined },
     size: {
       type: String,
       default: 'medium',
-      validator: (x:string) => { return ['medium', 'large', 'small'].includes(x) }
-    }
+      validator: (x:string) => { return ['medium', 'large', 'small'].includes(x) },
+    },
   },
   setup (props) {
     const avatarSize = ref('')
@@ -35,10 +34,10 @@ export default defineComponent({
     return { avatarSize, imgLoaded }
   },
   methods: {
-    imageLoad() {
+    imageLoad () {
       this.imgLoaded = true
-    }
-  }
+    },
+  },
 })
 </script>
 

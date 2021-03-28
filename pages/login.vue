@@ -74,7 +74,7 @@ export default defineComponent({
       } catch (error) {
         this.setError(error)
       }
-    }
-  }
+    },
+  },
 })
 </script>

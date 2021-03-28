@@ -39,8 +39,8 @@ export default defineComponent({
   methods: {
     toggleMenu () {
       this.menuOpen = !this.menuOpen
-    }
-  }
+    },
+  },
 })
 
 </script>

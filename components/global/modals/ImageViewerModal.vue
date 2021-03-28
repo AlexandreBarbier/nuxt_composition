@@ -14,16 +14,16 @@ export default defineComponent({
   props: {
     imageSource: {
       type: String,
-      default: undefined
+      default: undefined,
     },
     videoSource: {
       type: String,
-      default: undefined
-    }
+      default: undefined,
+    },
   },
   setup () {
     return {}
-  }
+  },
 })
 </script>
 

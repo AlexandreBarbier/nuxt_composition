@@ -1,6 +1,6 @@
 <template>
   <div class="bg-black-300 text-xl font-bold justify-between text-center p-4 flex items-center">
-    <span>Conversations</span>
+    <span>{{ $t('conversation.header.title') }}</span>
     <IconButton @click.native="createConversationClick()">
       <Add />
     </IconButton>
@@ -20,10 +20,8 @@ export default defineComponent({
   },
   methods: {
     createConversationClick () {
-      // if (this.currentUser) {
       this.$nuxt.$emit('show-modal', ModalName.UserListModal)
-      // }
-    }
-  }
+    },
+  },
 })
 </script>

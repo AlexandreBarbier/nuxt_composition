@@ -30,7 +30,7 @@ export default defineComponent({
       if (this.currentUser?.id && this.selectedUser) {
         this.createConversation({ participants: [this.currentUser.id, this.selectedUser], messages: [], archivedBy: [] })
       }
-    }
-  }
+    },
+  },
 })
 </script>

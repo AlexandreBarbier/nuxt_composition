@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, useFetch, ref, computed, onMounted } from '@nuxtjs/composition-api'
+import { defineComponent, ref, computed, onMounted } from '@nuxtjs/composition-api'
 import userState from '@/composables/users'
 import { UserListFilters } from '@/types/enum/filters'
 
@@ -15,14 +15,13 @@ export default defineComponent({
     filter: {
       type: String,
       default: UserListFilters.All,
-      validator: (x: UserListFilters) => { return Object.values(UserListFilters).includes(x) }
-    }
+      validator: (x: UserListFilters) => { return Object.values(UserListFilters).includes(x) },
+    },
   },
   setup () {
     const { fetchUsers, getFilteredUsers } = userState()
     const selected = ref('')
     onMounted(async () => {
-
       await fetchUsers()
     })
 
@@ -32,7 +31,7 @@ export default defineComponent({
     selectItem (itemId:string) {
       this.selected = itemId
       this.$emit('select', itemId)
-    }
-  }
+    },
+  },
 })
 </script>

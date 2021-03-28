@@ -21,11 +21,11 @@ export default defineComponent({
   props: {
     title: {
       type: String,
-      default: undefined
-    }
+      default: undefined,
+    },
   },
   setup () {
     return { }
-  }
+  },
 })
 </script>

@@ -11,17 +11,17 @@ export default defineComponent({
   props: {
     primary: {
       type: Boolean,
-      default: false
+      default: false,
     },
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 })
 
 </script>

@@ -99,8 +99,8 @@ export default defineComponent({
         default:
           break
       }
-    }
-  }
+    },
+  },
 
 })
 </script>

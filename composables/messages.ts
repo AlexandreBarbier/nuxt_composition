@@ -73,7 +73,7 @@ export default () => {
         setError(error)
       },
       complete: () => {
-      }
+      },
     })
   }
 
@@ -105,6 +105,6 @@ export default () => {
     fetchLastMessageForConversation,
     sendMessage,
     getMessageForConversation,
-    watchMessagesUpdateForConversation
+    watchMessagesUpdateForConversation,
   }
 }

@@ -89,7 +89,7 @@ export default defineComponent({
       this.sendMessage({
         text: this.textInput.value.trim(),
         createdAt: new Date().getTime(),
-        unread: true
+        unread: true,
       }, this.currentConversation?.id, this.selectedFile).catch((err) => {
         this.setError(err)
       })
@@ -99,7 +99,7 @@ export default defineComponent({
       this.textInput.value = ''
       this.placeholder = ''
       this.selectedFile = undefined
-    }
-  }
+    },
+  },
 })
 </script>

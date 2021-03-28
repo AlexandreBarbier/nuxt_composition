@@ -20,7 +20,7 @@ export default () => {
         if (el.clickOutsideEvent) {
           document.body.removeEventListener('click', el.clickOutsideEvent)
         }
-      }
+      },
     })
   })
 }

@@ -13,10 +13,6 @@ export default defineComponent({
     const { users } = userState()
 
     return { users }
-  }
+  },
 })
 </script>
-
-<style scoped>
-
-</style>

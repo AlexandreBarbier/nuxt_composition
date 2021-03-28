@@ -12,6 +12,6 @@ export default defineComponent({
   components: { messagesList },
   setup () {
     return {}
-  }
+  },
 })
 </script>

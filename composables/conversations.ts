@@ -30,7 +30,7 @@ export default () => {
     conversationCollection.doc(conversationId).onSnapshot({
       next: (_) => {
         // console.log(snapshot.data())
-      }
+      },
     })
   }
 
@@ -77,6 +77,6 @@ export default () => {
     createConversation,
     currentConversation,
     selectConversation,
-    setMessages
+    setMessages,
   }
 }

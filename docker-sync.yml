@@ -23,4 +23,5 @@ syncs:
         ".*/sass-cache",
         ".gitignore",
         ".docker-sync/daemon.log",
+        ".nuxt",
       ]

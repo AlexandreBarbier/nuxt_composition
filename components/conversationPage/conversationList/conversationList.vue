@@ -51,6 +51,6 @@ export default defineComponent({
       }
     }, { immediate: true })
     return { conversations, currentUser, selectConversation, currentConversation }
-  }
+  },
 })
 </script>

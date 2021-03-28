@@ -15,8 +15,8 @@ export default defineComponent({
 
     return {
       error,
-      resetError
+      resetError,
     }
-  }
+  },
 })
 </script>

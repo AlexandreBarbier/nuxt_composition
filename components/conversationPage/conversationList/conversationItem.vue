@@ -31,12 +31,12 @@ export default defineComponent({
   props: {
     conversationId: {
       type: String,
-      default: ''
+      default: '',
     },
     selected: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup (props: any) {
     const conversation = conversationsStore().getConversation(props.conversationId)
@@ -55,7 +55,7 @@ export default defineComponent({
     })
 
     useFetch(async () => {
-     participant.value = await userStore().getUser(pId)
+      participant.value = await userStore().getUser(pId)
     })
 
     watch(messages, (next) => {
@@ -65,6 +65,6 @@ export default defineComponent({
     }, { immediate: true, deep: true })
 
     return { conversation, participant, lastMessage }
-  }
+  },
 })
 </script>

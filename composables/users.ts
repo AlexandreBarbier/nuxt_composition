@@ -25,7 +25,7 @@ export default () => {
     await ref.put(file)
     const photoURL = await ref.getDownloadURL()
     $fire.auth.currentUser?.updateProfile({
-      photoURL
+      photoURL,
     })
     const currentUser = await usersCollection.doc($fire.auth.currentUser.uid)
     await currentUser.update({ photoURL })
@@ -141,7 +141,7 @@ export default () => {
 
   const logoutUser = () => {
     if (localUser.value) {
-      usersMap.delete(localUser.value.id )
+      usersMap.delete(localUser.value.id)
       localUser.value = undefined
     }
   }

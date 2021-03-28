@@ -3,7 +3,13 @@
     <div class="flex flex-col w-full justify-between">
       <div class="flex flex-col flex-1 w-2/3 self-center overflow-hidden">
         <div ref="messageList" class="flex flex-col flex-grow py-8 overflow-y-scroll">
-          <MessageItem v-for="message in messages" :key="message.id" :reverse="currentUser.id === message.author.id" :message="message" @image-loaded="imgLoaded" />
+          <MessageItem
+            v-for="message in messages"
+            :key="message.id"
+            :reverse="currentUser.id === message.author.id"
+            :message="message"
+            @image-loaded="imgLoaded"
+          />
         </div>
         <MessageInput class="sticky mb-8 mt-2" />
       </div>
@@ -40,13 +46,12 @@ export default defineComponent({
     }
     watch(currentConversation, async (next) => {
       if (next?.id) {
-        if (!next.messages.length && !messageFetched ) {
+        if (!next.messages.length && !messageFetched) {
           messageFetched = true
           await fetchMessagesForConversations(next.id)
         }
         messages.value = getMessageForConversation(next.id)
         await updateScroll()
-
       } else {
         useContext().redirect('/chat')
       }
@@ -57,7 +62,7 @@ export default defineComponent({
   methods: {
     async imgLoaded () {
       await this.updateScroll!()
-    }
-  }
+    },
+  },
 })
 </script>

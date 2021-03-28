@@ -14,16 +14,16 @@ export default defineComponent({
   props: {
     hoverBackground: {
       type: Boolean,
-      default: true
+      default: true,
     },
     hoverColor: {
       type: String,
-      default: 'bg-blue-700'
+      default: 'bg-blue-700',
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup () {
     return { }
@@ -31,7 +31,7 @@ export default defineComponent({
   methods: {
     hColor () {
       return this.hoverBackground && !this.disabled ? `hover:${this.hoverColor}` : ''
-    }
-  }
+    },
+  },
 })
 </script>

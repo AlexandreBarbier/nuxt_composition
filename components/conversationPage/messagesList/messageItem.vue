@@ -5,8 +5,20 @@
       <div :class="['rounded py-2 px-4', reverse ? 'bg-blue-900 text-white shadow-lg' : 'bg-white']">
         <span>{{ message.text }}</span>
         <div v-if="message.media" class="mt-2 text-gray-300">
-          <img v-if="message.media.type.includes('image')" class="m-auto" :src="message.media.url" @load="onImgLoad" @click="enlargeImage">
-          <video v-else-if="message.media.type.includes('video')" class="m-auto" controls :src="message.media.url" @click="enlargeVideo" />
+          <img
+            v-if="message.media.type.includes('image')"
+            class="m-auto"
+            :src="message.media.url"
+            @load="onImgLoad"
+            @click="enlargeImage"
+          >
+          <video
+            v-else-if="message.media.type.includes('video')"
+            class="m-auto"
+            controls
+            :src="message.media.url"
+            @click="enlargeVideo"
+          />
           <a v-else :href="message.media.url" class="flex items-center" target="blank">
             <AttachFile class="mr-1 fill-current text-gray-300 h-4" />{{ message.media.name }}
           </a>
@@ -28,12 +40,12 @@ export default defineComponent({
   props: {
     message: {
       type: Object as () => IMessage,
-      default: () => {}
+      default: () => {},
     },
     reverse: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup (props) {
     const author = useAsync(() => {
@@ -50,9 +62,9 @@ export default defineComponent({
     },
     onImgLoad () {
       this.$emit('image-loaded')
-    }
+    },
 
-  }
+  },
 
 })
 </script>

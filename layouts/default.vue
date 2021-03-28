@@ -28,6 +28,6 @@ export default defineComponent({
       modalProps.value = props
     })
     return { showModal, modalComponentName, modalProps }
-  }
+  },
 })
 </script>

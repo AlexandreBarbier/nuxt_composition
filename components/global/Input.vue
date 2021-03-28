@@ -12,16 +12,16 @@ export default defineComponent({
     type: {
       type: String,
       default: 'text',
-      validator: (x:string) => { return ['text', 'email', 'password'].includes(x) }
+      validator: (x:string) => { return ['text', 'email', 'password'].includes(x) },
     },
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     placeholder: {
       type: String,
-      default: 'placeholder'
-    }
+      default: 'placeholder',
+    },
   },
   computed: {
     input: {
@@ -30,7 +30,7 @@ export default defineComponent({
       },
       set (val: String) {
         this.$emit('input', val)
-      }
+      },
     },
     getAutocomplete () : String {
       switch (this.type) {
@@ -41,7 +41,7 @@ export default defineComponent({
         default:
           return ''
       }
-    }
-  }
+    },
+  },
 })
 </script>

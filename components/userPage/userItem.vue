@@ -13,15 +13,15 @@ export default defineComponent({
   props: {
     user: {
       type: Object as () => IUser,
-      default: () => {}
+      default: () => {},
     },
     selected: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup () {
     return {}
-  }
+  },
 })
 </script>
