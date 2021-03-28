@@ -139,15 +139,23 @@ export default () => {
     return localUser
   }
 
+  const logoutUser = () => {
+    if (localUser.value) {
+      usersMap.delete(localUser.value.id )
+      localUser.value = undefined
+    }
+  }
+
   return {
-    users,
-    fetchUser,
-    getFilteredUsers,
-    fetchUsers,
-    updateUser,
-    getUser,
     createUser,
+    fetchUser,
+    fetchUsers,
     getCurrentUser,
-    uploadAvatar
+    getFilteredUsers,
+    getUser,
+    logoutUser,
+    updateUser,
+    uploadAvatar,
+    users,
   }
 }

@@ -44,9 +44,7 @@ export default defineComponent({
           messageFetched = true
           await fetchMessagesForConversations(next.id)
         }
-
-        const conversationMessages = getMessageForConversation(next.id)
-        messages.value = conversationMessages
+        messages.value = getMessageForConversation(next.id)
         await updateScroll()
 
       } else {

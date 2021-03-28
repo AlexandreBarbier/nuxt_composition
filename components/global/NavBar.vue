@@ -7,7 +7,7 @@
       <span class="text-white m-auto ">
         Nuxt Composition Chat
       </span>
-      <IconButton v-if="currentUser" class="mr-4 absolute right-0" @click.native="openMenu">
+      <IconButton v-if="currentUser" class="mr-4 absolute right-0" @click.native="toggleMenu">
         <Close v-if="menuOpen" class="fill-current text-white w-8 h-8" />
         <Avatar v-else size="medium" :url="currentUser.photoURL" />
       </IconButton>
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { defineComponent, ref, watch } from '@nuxtjs/composition-api'
 import usersStore from '@/composables/users'
 
 import Close from '@/assets/icons/close.svg'
@@ -28,16 +28,17 @@ export default defineComponent({
     const { getCurrentUser } = usersStore()
     const currentUser = getCurrentUser()
 
+    watch(currentUser, (next) => {
+      if (!next) {
+        menuOpen.value = false
+      }
+    })
+
     return { menuOpen, currentUser }
   },
   methods: {
-    openMenu () {
+    toggleMenu () {
       this.menuOpen = !this.menuOpen
-    },
-    closeMenu () {
-      if (this.menuOpen) {
-        this.menuOpen = false
-      }
     }
   }
 })

@@ -4,18 +4,17 @@ import userStore from '@/composables/users'
 export default () => {
   onGlobalSetup(() => {
     const { $fire, redirect, route } = useContext()
-    const { getCurrentUser, fetchUser } = userStore()
+    const { getCurrentUser, fetchUser, logoutUser } = userStore()
 
     $fire.auth.onAuthStateChanged(async (next) => {
-      if (process.client) {
-        if (next) {
-          const user = getCurrentUser()
-          if (user?.value) {
-            await fetchUser(user.value.id)
-          }
-        } else if (route.value.name !== 'login') {
-          redirect('/login')
+      if (next) {
+        const user = getCurrentUser()
+        if (user?.value) {
+          await fetchUser(user.value.id)
         }
+      } else if (route.value.name !== 'login') {
+        logoutUser()
+        redirect('/login')
       }
     })
   })
