@@ -7,14 +7,16 @@ export default () => {
     const { getCurrentUser, fetchUser, logoutUser } = userStore()
 
     $fire.auth.onAuthStateChanged(async (next) => {
-      if (next) {
-        const user = getCurrentUser()
-        if (user?.value) {
-          await fetchUser(user.value.id)
+      if (process.client) {
+        if (next) {
+          const user = getCurrentUser()
+          if (user?.value) {
+            await fetchUser(user.value.id)
+          }
+        } else if (route.value.name !== 'login') {
+          logoutUser()
+          redirect('/login')
         }
-      } else if (route.value.name !== 'login') {
-        logoutUser()
-        redirect('/login')
       }
     })
   })
