@@ -1,7 +1,6 @@
 <template>
   <div :class="['rounded-md p-4 flex items-center', selected ? 'bg-selected-900 text-white': 'hover:bg-selected-300 bg-gray-200']">
-    <Avatar v-if="user.photoURL" size="small" :url="user.photoURL" />
-    <AvatarIcon v-else class="fill-current text-white w-6 h-6" />
+    <Avatar size="small" :url="user.photoURL" />
     <span class="truncate ml-2">{{ user.email }}</span>
   </div>
 </template>

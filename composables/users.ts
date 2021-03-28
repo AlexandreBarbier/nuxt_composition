@@ -39,7 +39,6 @@ export default () => {
       return
     }
     const user = usersMap.get(userId)
-
     if (!user || !user.value?.email) {
       usersMap.set(userId, ssrRef({ id: userId } as IUser))
       await fetchUser(userId)
@@ -50,19 +49,18 @@ export default () => {
   }
 
   const fetchUser = async (userId: string) => {
+    const usr = usersMap.get(userId)!
     const doc = await usersCollection.doc(userId).get()
     const user = doc.data() || {}
-
     user.id = userId
     delete user.uid
-    await getPhotoForUser(user as IUser)
-    const usr = usersMap.get(userId)!
     if (!usr) {
       usersMap.set(userId, ssrRef(user as IUser))
-      updateUsersArray()
     } else {
       usr.value = user as IUser
+      await getPhotoForUser(user as IUser)
     }
+    updateUsersArray()
   }
 
   const fetchUsers = async () => {
@@ -119,7 +117,7 @@ export default () => {
   }
 
   const getPhotoForUser = async (user: IUser) => {
-    if (user?.photoURL) {
+    if (!user?.photoURL) {
       const photoURL = user?.photoURL ? await $fire.storage.refFromURL(user?.photoURL).getDownloadURL() : undefined
       user.photoURL = photoURL
     }

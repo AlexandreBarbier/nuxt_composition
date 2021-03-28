@@ -28,6 +28,7 @@ export default defineComponent({
     const currentUser = userState().getCurrentUser()
     const { fetchMessagesForConversations, getMessageForConversation } = messagesState()
     const messages: Ref<IMessage[]> = ref([])
+    let messageFetched = false
     const messageList = ref(Object())
     if (useContext().route.value.name === 'conversations') {
       useContext().redirect('/chat')
@@ -39,14 +40,15 @@ export default defineComponent({
     }
     watch(currentConversation, async (next) => {
       if (next?.id) {
-        if (!next.messages.length) {
+        if (!next.messages.length && !messageFetched ) {
+          messageFetched = true
           await fetchMessagesForConversations(next.id)
         }
-        if (next?.messages.length !== messages.value.length) {
-          const conversationMessages = getMessageForConversation(next.id)
-          messages.value = conversationMessages
-          await updateScroll()
-        }
+
+        const conversationMessages = getMessageForConversation(next.id)
+        messages.value = conversationMessages
+        await updateScroll()
+
       } else {
         useContext().redirect('/chat')
       }

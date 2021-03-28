@@ -1,8 +1,8 @@
 <template>
   <Modal>
     <template #content>
-      <img v-if="imageSource" :src="imageSource" class="max-w-6xl">
-      <video v-if="videoSource" :src="videoSource" class="max-w-6xl" controls autoplay />
+      <img v-if="imageSource" :src="imageSource" class="lg:max-w-6xl">
+      <video v-if="videoSource" :src="videoSource" class="lg:max-w-6xl" controls autoplay />
     </template>
   </Modal>
 </template>

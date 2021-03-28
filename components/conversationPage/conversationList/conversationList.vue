@@ -29,7 +29,7 @@ export default defineComponent({
   setup () {
     const { conversations, fetchConversations, selectConversation, currentConversation } = conversationsState()
     const currentUser = userState().getCurrentUser()
-    const { fetchUser } = userState()
+    const { getUser } = userState()
     const { fetch } = useFetch(async () => {
       if (currentUser.value) {
         await fetchConversations(currentUser.value.id)
@@ -42,10 +42,10 @@ export default defineComponent({
     }, { immediate: true })
     watch(() => conversations.value, (next) => {
       if (next) {
-        next.forEach((x: IConversation) => {
+        next.forEach(async (x: IConversation) => {
           const other = x.participants.find(id => id !== currentUser.value?.id)
           if (other) {
-            fetchUser(other)
+            await getUser(other)
           }
         })
       }

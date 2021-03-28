@@ -9,8 +9,7 @@
       </span>
       <IconButton v-if="currentUser" class="mr-4 absolute right-0" @click.native="openMenu">
         <Close v-if="menuOpen" class="fill-current text-white w-8 h-8" />
-        <Avatar v-else-if="currentUser.photoURL" size="medium" :url="currentUser.photoURL" />
-        <AvatarIcon v-else class="fill-current text-white w-8 h-8" />
+        <Avatar v-else size="medium" :url="currentUser.photoURL" />
       </IconButton>
     </div>
   </div>
@@ -19,11 +18,11 @@
 <script lang="ts">
 import { defineComponent, ref } from '@nuxtjs/composition-api'
 import usersStore from '@/composables/users'
-import AvatarIcon from '@/assets/icons/avatar_icon.svg'
+
 import Close from '@/assets/icons/close.svg'
 
 export default defineComponent({
-  components: { AvatarIcon, Close },
+  components: { Close },
   setup () {
     const menuOpen = ref(false)
     const { getCurrentUser } = usersStore()
